@@ -1,0 +1,174 @@
+.hero {
+    position: relative;
+    height: 100vh;
+
+    @media (max-width: 768px) {
+        height: auto;
+    }
+
+    // .hero__container
+
+    &__container {
+        height: 100%;
+    }
+
+    // .hero__body
+
+    &__body {
+        height: 100%;
+    }
+
+    // .hero__content
+
+    &__content {
+        padding: 100px 0;
+        height: 100%;
+        max-width: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (max-width: 768px) {
+            padding: 150px 0 200px 0;
+        }
+    }
+
+    ._section-title {
+        color: $white;
+    }
+
+    ._btn {
+        @include adaptive-value("margin-top", 48, 20, 1);
+    }
+
+    // .hero__images
+
+    &__images {
+        // .hero__images-img
+
+        &:before {
+            z-index: 2;
+        }
+
+        .swiper {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            img {
+            }
+        }
+
+        // .hero__images-slider
+
+        &-slider {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            background-color: $light-gray;
+            border-top-left-radius: 5px;
+            padding: 2px;
+
+            @media (max-width: 768px) {
+                width: 100%;
+                border-top-left-radius: 0;
+                padding: 0;
+
+                flex-direction: row-reverse;
+                justify-content: space-between;
+            }
+
+            // .hero__images-slider-control
+
+            &-control {
+                & > :first-child {
+                    margin-bottom: 2px;
+                }
+
+                button {
+                    @include adaptive-value("width", 70, 50, 1);
+                    @include adaptive-value("height", 70, 50, 1);
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $white;
+
+                    svg,
+                    img {
+                        width: 16px;
+                        height: 16px;
+                        stroke: $black;
+                        pointer-events: none;
+                    }
+                }
+
+                .prev {
+                    img,
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .swiper {
+                width: 360px;
+
+                @include adaptive-value("max-height", 140, 100, 1);
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+
+            // .hero__images-slide
+
+            .swiper-slide {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                @include adaptive-value("padding", 36, 20, 1);
+            background-color: $light-gray;
+
+                span {
+                    display: block;
+                    font-weight: 500;
+
+                    @include adaptive-value("font-size", 22, 18, 1);
+                    @include adaptive-value("margin-bottom", 15, 10, 1);
+                }
+
+                label {
+                    text-transform: uppercase;
+                    display: block;
+                    @include adaptive-value("font-size", 14, 12, 1);
+                }
+            }
+        }
+
+        // .hero__images-order
+
+        &-order {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            white-space: nowrap;
+            text-transform: uppercase;
+            background-color: $white;
+            border-radius: 5px;
+
+            @include adaptive-value("padding-top", 20, 10, 1);
+            @include adaptive-value("padding-bottom", 20, 10, 1);
+            @include adaptive-value("padding-inline", 40, 20, 1);
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+    }
+}

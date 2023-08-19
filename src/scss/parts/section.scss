@@ -1,0 +1,305 @@
+.section {
+    @include adaptive-value("padding-top", 140, 60, 1);
+    @include adaptive-value("padding-bottom", 140, 60, 1);
+    position: relative;
+
+    // .section__container
+
+    &__container {
+    }
+
+    // .section__body
+
+    &__body {
+    }
+
+    // .section__flex
+
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
+
+    // .section__left
+
+    &__left {
+        width: calc(50% - 15px);
+
+        @media (max-width: 768px) {
+            max-width: none;
+            width: 100%;
+        }
+    }
+
+    // .section__right
+
+    &__right {
+        width: calc(50% - 15px);
+
+        @media (max-width: 768px) {
+            margin-top: 32px;
+            max-width: none;
+            width: 100%;
+        }
+    }
+
+    .swiper {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        // .swiper-slide
+
+        &-slide {
+            border-radius: 5px;
+            overflow: hidden;
+
+            transform: scale(0.9);
+            transition: transform 0.8s ease 0.3s;
+
+            will-change: transform;
+
+            &.swiper-slide-active {
+                padding: 0;
+                transform: scale(1);
+
+                .service-info {
+                    padding-bottom: 60px;
+                }
+            }
+        }
+
+        // .swiper-navigation
+
+        &-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(0, -50%);
+            z-index: 1;
+            position: relative;
+
+            & > :not(:last-child) {
+                margin-right: 20px;
+            }
+
+            button {
+                width: 60px;
+                height: 60px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $white;
+                border-radius: 50%;
+                border: 1px solid $border;
+
+                svg,
+                img {
+                    width: 16px;
+                    height: 16px;
+                    stroke: $black;
+                    pointer-events: none;
+                }
+            }
+
+            .prev {
+            }
+
+            .next {
+                img,
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+#services ._section-title {
+    @include adaptive-value("margin-bottom", 60, 36, 1);
+}
+
+#advantages {
+    background-color: $light-gray;
+
+    ._section-title {
+        margin-bottom: 23px;
+    }
+
+    .section__left {
+        @media (min-width: 769px) {
+            max-width: 475px;
+        }
+
+        p {
+            color: $dark-gray;
+
+            @include adaptive-value("font-size", 19, 14, 1);
+
+            &:not(:last-child) {
+                margin-bottom: 1.5em;
+            }
+        }
+    }
+
+    .section__right {
+        @media (min-width: 769px) {
+            width: 55%;
+            margin-left: 30px;
+        }
+    }
+
+    .image {
+        position: relative;
+        padding-bottom: 55%;
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .advantages {
+        @include adaptive-value("margin-top", 140, 48, 1);
+    }
+}
+
+#steps {
+    ._section-title {
+        margin-bottom: 23px;
+
+        h2 {
+            @include adaptive-value("font-size", 34, 24, 1);
+        }
+    }
+
+    .section__flex {
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    .steps__left {
+        padding: 0 18px 28px 18px;
+
+        @media (max-width: 768px) {
+            padding: 0;
+        }
+
+        ._btn {
+            max-width: none;
+            width: 100%;
+        }
+    }
+
+    .section__left {
+        background-color: $light-gray;
+        padding: 19px;
+        border-radius: 12px;
+        height: fit-content;
+
+        @media (min-width: 769px) {
+            max-width: 500px;
+        }
+
+        img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 35px;
+
+            @media (max-width: 768px) {
+                height: 160px;
+                margin-bottom: 25px;
+            }
+        }
+
+        p {
+            color: $dark-gray;
+
+            @include adaptive-value("font-size", 19, 14, 1);
+
+            &:not(:last-child) {
+                margin-bottom: 1.5em;
+            }
+        }
+    }
+
+    .section__right {
+        @media (min-width: 769px) {
+            width: 45%;
+            margin-left: 100px;
+        }
+
+        @media (max-width: 768px) {
+            margin-top: 0;
+            margin-bottom: 48px;
+        }
+    }
+}
+
+#promise {
+    @include adaptive-value("padding-top", 140, 100, 1);
+    @include adaptive-value("padding-bottom", 200, 100, 1);
+
+    ._section-title {
+        margin-inline: auto;
+        color: $white;
+        max-width: 750px;
+    }
+
+    ._btn {
+        margin-top: 36px;
+        margin-inline: auto;
+    }
+}
+
+#gallery {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+
+    .section__flex {
+        @include adaptive-value("padding-bottom", 100, 40, 1);
+        @include adaptive-value("padding-top", 140, 100, 1);
+        align-items: center;
+        position: relative;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: 100vw;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: -1;
+            background-color: $light-gray;
+        }
+    }
+
+    ._section-title {
+        h2 {
+            @include adaptive-value("font-size", 34, 24, 1);
+        }
+    }
+
+    .section__right {
+        p {
+            max-width: 530px;
+            @include adaptive-value("font-size", 17, 14, 1);
+            color: $dark-gray;
+            margin-left: auto;
+        }
+    }
+}

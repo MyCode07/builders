@@ -1,0 +1,70 @@
+.gallery-scroll {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    @media (any-hover: none) {
+        overflow-x: auto;
+        display: block;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    counter-reset: count;
+
+    // .gallery-scroll__body
+
+    &__body {
+        display: flex;
+        position: relative;
+    }
+
+    // .gallery-scroll__item
+
+    &__item {
+        counter-increment: count;
+        position: relative;
+        width: 480px;
+        flex: 0 0 auto;
+        height: 480px;
+
+        @media (max-width: 1024px) {
+            @include adaptive-value("width", 480, 300, 1);
+            @include adaptive-value("height", 480, 300, 1);
+        }
+
+        img {
+            transition: all 0.3s ease 0s;
+            filter: grayscale(1);
+            pointer-events: none;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                img {
+                    filter: grayscale(0);
+                }
+            }
+        }
+
+        @media (any-hover: none) {
+            img {
+                filter: grayscale(0);
+            }
+        }
+    }
+}
