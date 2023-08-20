@@ -90,7 +90,6 @@ svg {
 
     h2 {
         @include adaptive-value("font-size", 48, 36, 1);
-        text-transform: capitalize;
     }
 
     &._center {

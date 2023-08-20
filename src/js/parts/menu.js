@@ -17,6 +17,7 @@ if (burger) {
 if (menuLinks.length) {
     menuLinks.forEach(link => {
         link.addEventListener('click', (е) => {
+
             if (!isMobile.any())
                 if (menu.classList.contains('_open')) unLockPadding();
                 else lockPadding()
