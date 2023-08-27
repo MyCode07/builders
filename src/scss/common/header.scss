@@ -75,13 +75,20 @@
         display: block;
         color: $white;
         line-height: 1;
+        flex: 0 0 auto;
 
-        @include adaptive-value("font-size", 60, 40, 1);
+        img,
+        svg {
+            @include adaptive-value("width", 150, 100, 1);
+            fill: currentColor;
+            transition: all 0.3s ease 0s;
+        }
     }
 
     // .header__left
 
     &__left {
+        flex: 0 0 auto;
     }
 
     // .header__right
@@ -97,6 +104,12 @@
 
         @media (max-width: 768px) {
             justify-content: flex-end;
+        }
+
+        ._btn {
+            @media (max-width:768px){
+                display: none;
+            }
         }
     }
 

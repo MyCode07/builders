@@ -31,6 +31,12 @@
         @media (max-width: 768px) {
             padding: 150px 0 200px 0;
         }
+
+        p {
+            @include adaptive-value("font-size", 22, 16, 1);
+            margin-top: 2em;
+            font-weight: 300;
+        }
     }
 
     ._section-title {
@@ -132,7 +138,7 @@
                 justify-content: center;
                 flex-direction: column;
                 @include adaptive-value("padding", 36, 20, 1);
-            background-color: $light-gray;
+                background-color: $light-gray;
 
                 span {
                     display: block;
@@ -169,6 +175,12 @@
             @media (max-width: 768px) {
                 display: none;
             }
+        }
+    }
+
+    ._overlay {
+        &:before {
+            background-color: rgba($color: #0f1326, $alpha: 0.6);
         }
     }
 }

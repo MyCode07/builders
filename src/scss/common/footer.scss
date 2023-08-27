@@ -18,13 +18,13 @@
     // .footer__logo
 
     &__logo {
+        flex: 0 0 auto;
+        display: block;
+        width: fit-content;
+
         img,
         svg {
-            width: 96px;
-
-            @media (max-width: 768px) {
-                width: 80px;
-            }
+            @include adaptive-value("width", 150, 100, 1);
         }
     }
 
